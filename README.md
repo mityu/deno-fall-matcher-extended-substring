@@ -1,4 +1,4 @@
-# fall-source-mr-mixed
+# fall-matcher-extended-substring
 
 A matcher for [fall.vim](https://github.com/vim-fall/fall.vim) that basically
 filters items based on query substrings but with some filter commands (e.g.
