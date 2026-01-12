@@ -1,0 +1,27 @@
+name: Update deno dependencies
+
+on:
+  schedule:
+    - cron: 0 12 * * 5
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v6
+      - uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+      - run: deno outdated --update --latest
+      - uses: peter-evans/create-pull-request@v8
+        with:
+          commit-message: "chore: Update deps"
+          branch: ci-update-deno-deps
+          delete-branch: true
+          title: "chore: Update deps"
