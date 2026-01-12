@@ -41,8 +41,7 @@ jobs:
         runner:
           - ubuntu-latest
         deno_version:
-          - "1.x"
-          - "2.x"
+          - "^2.3.x"
     runs-on: ${{ matrix.runner }}
     steps:
       - run: git config --global core.autocrlf false
