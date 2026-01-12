@@ -42,7 +42,7 @@ matches `^abc`, `x^abc`, etc, and doesn't match `abc`.
 
 ## Example
 
-For the details of source options or etc, please check
+For the details of matcher options or etc, please check
 [@mityu/fall-matcher-extended-substring](https://jsr.io/@mityu/fall-matcher-extended-substring).
 
 ```typescript

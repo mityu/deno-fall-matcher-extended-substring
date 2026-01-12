@@ -167,6 +167,20 @@ export type ExtendedSubstringOptions = {
   smartCase?: boolean;
 };
 
+/**
+ * Creates a matcher that filters items by space-separated queries.
+ * Basically a query matches for text when the text contains the query, but
+ * when a query is a special-form text matching will be done in another way:
+ *
+ * - `^{query}`: Matches when a text starts with `{query}`.
+ * - `{query}$`: Matches when a text ends with `{query}`.
+ * - `!{query}`: Matches when a text does not contain `{query}`.
+ *
+ * Each matched query within items is decorated with its position and length.
+ *
+ * @param opts - Matching options to control case sensitivity.
+ * @returns A matcher that applies extended substring filtering with decorations.
+ */
 export const extendedSubstring = (
   opts?: ExtendedSubstringOptions,
 ): Matcher => {
