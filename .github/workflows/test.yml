@@ -26,6 +26,9 @@ on:
         description: "Enable verbose output"
         default: false
 
+permissions:
+  contents: read
+
 defaults:
   run:
     shell: bash --noprofile --norc -eo pipefail {0}
