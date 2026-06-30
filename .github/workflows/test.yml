@@ -49,11 +49,11 @@ jobs:
     steps:
       - run: git config --global core.autocrlf false
         if: runner.os == 'Windows'
-      - uses: actions/checkout@v7
-      - uses: denoland/setup-deno@v2
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+      - uses: denoland/setup-deno@667a34cdef165d8d2b2e98dde39547c9daac7282 # v2.0.4
         with:
           deno-version: "${{ matrix.deno_version }}"
-      - uses: actions/cache@v6
+      - uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
           key: deno-${{ hashFiles('**/*') }}
           restore-keys: deno-
@@ -87,9 +87,9 @@ jobs:
       - run: git config --global core.autocrlf false
         if: runner.os == 'Windows'
 
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
 
-      - uses: denoland/setup-deno@v2
+      - uses: denoland/setup-deno@667a34cdef165d8d2b2e98dde39547c9daac7282 # v2.0.4
         with:
           deno-version: "${{ matrix.deno_version }}"
 
@@ -103,12 +103,12 @@ jobs:
           git -C /tmp/denops.vim switch ${{ env.DENOPS_BRANCH }} || true
           git -C /tmp/denops.vim branch
 
-      - uses: rhysd/action-setup-vim@v1
+      - uses: rhysd/action-setup-vim@febef33995d6649302e9d88dda81e071b68f16a7 # v1.6.1
         id: vim
         with:
           version: "${{ matrix.host_version.vim }}"
 
-      - uses: rhysd/action-setup-vim@v1
+      - uses: rhysd/action-setup-vim@febef33995d6649302e9d88dda81e071b68f16a7 # v1.6.1
         id: nvim
         with:
           neovim: true
@@ -145,8 +145,8 @@ jobs:
   jsr-publish:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v7
-      - uses: denoland/setup-deno@v2
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+      - uses: denoland/setup-deno@667a34cdef165d8d2b2e98dde39547c9daac7282 # v2.0.4
         with:
           deno-version: ${{ env.DENO_VERSION }}
       - name: Publish (dry-run)
